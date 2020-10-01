@@ -1,0 +1,13 @@
+date, invoice number, PO number, shipping address, billing address, shipping cost, sales tax, discount, comments
+09/29/2020, 552254, 4423, 3423 Main St Denver CO 80203, 234 Other St Denver CO 80205, 11.45, 5.23, 0, Thanks!
+
+description, SKU, quantity, price, rebateFlag
+great product1, 23423, 2, 3.66, n
+great product2, 23456, 5, 5.77, y
+great product3, 23456, 5, 5.77, y
+great product4, 23456, 5, 5.77, y
+
+total
+92.87
+
+
