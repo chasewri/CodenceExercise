@@ -1,68 +1,41 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Codence Exercise 
 
-## Available Scripts
+## Approach
+My approach to this problem assumes that the incoming csv is at least slightly formatted. It assumes that the first two lines will be the general invoice information. It then assumes that the information in between will be line items, and the total will be supplied last. 
 
-In the project directory, you can run:
+Right now the upload page takes an csv splits up the data to display in tables for the uploader to review. It does a simple check to see if the totals match. Highlighting the text in red if it doesn't match, however, right now, it's just taking the value at two decimal places. 
 
-### `yarn start`
+Things to do still:
+- Find out if this is the way that csvs are planning to look
+- add more checks to make sure that incoming data is the appropriate type
+- add better alerts to the ui for data that does not seem correct
+- create a function that will save the data into an object if it is verified and send it to the backend. 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## General Info
+This is just a simple create react app with three pages. It has an index page of no real value at this time. It has a sign in form that will let anyone log in right now if both values are greater than 1, however, right now, it has just simple validation. 
+The upload page, after login, allows a user to upload a csv file. 
+This current project has implemented a few solutions to the problem, but still needs a lot of work. The upload file has not be split satisfactorily yet.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Set up
+It's a regular react app.
+`
+npm i && npm start
+` will get it started.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Problems 
+- .csv with multiple headers
+  - trim strings 
+  - filter for empty lines in file
+  - find invoice headers
+  - find invoice headers info
+- Determine actual total
+  - find index of prices
+  - find index of quantity
+  - calculate total from prices and quantity
+- Compare calculated total to incoming total
+  - find index of total in csv
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Need to do
+- check to see if info in columns is of right type
+- create an object that contains all checked data in an appropriate format that can be sent to the backend 
